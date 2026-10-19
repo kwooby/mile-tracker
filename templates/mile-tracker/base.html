@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial=scale=1.0">
+        <title>{% block title %}{% endblock %} | Mile Tracker</title>
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <ul class="nav-bar">
+                    {% if session.get("authenticated") %}
+                        <li>
+                            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('runs_history') }}">History</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('settings') }}">Settings</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('register_user') }}">Register</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{  url_for('login') }}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('register_user') }}">Regsiter</a>
+                        </li>
+                    {% endif %}
+                </ul>
+        </header>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <p>Mile Tracker | Kwooby</p>
+        </footer>
+    </body>
+</html>
