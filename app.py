@@ -3,12 +3,12 @@ from psycopg2.extras import RealDictCursor
 import os
 import uuid
 import calendar
+import cloudinary
+import cloudinary.uploader
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, session, redirect, flash, url_for
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
-import cloudinary
-import cloudinary.uploader
 
 load_dotenv()
 

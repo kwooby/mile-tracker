@@ -4,23 +4,38 @@
 
 ## CURRENT STATUS
 
-Current State
+Current State: IN RE-PRODUCTION
+    - Full redesign in progress
+    - This is a temporary development enviroment I am using to refactor and redesign my mile-tracker web app!
+    - I told you I'd be back after i was done with the Hub c:< and I have so much more KNOWLEDGE
 
-    -Deployment: Complete
+## 10/20/2026
 
-    -Authentication: Complete
+NOTES:
+    - Enviroment is connected to a temporary development database on Render just to test while the web app is still live and working
+    - Katie is actively using the mile tracker, so it's imperitive that we keep that data safe, therefore a separate testing branch on a separate testing database seemed
+    best bet
 
-    -Gallery: Complete
+    -'ashboard.html' is the old dashboard file (lol)
+        - I wanted to keep is as a reference of the placing of things since I enjoyed how that was structured
+        - Will delete when done referencing
+    - Currently working on redesigning the landing section (now correctly renamed 'hero-section')
+        - Honestly, it's looking really nice
+        - Following the same design motifs as the folio seems to be the way to go, just making the design to fit the tracker's section structure
+    
+    - Seems like there's a disconnect for the run and walk totals in the frontend
+        - I am not surprised at this, I will probably come into a lot of messiness in the backend app.py while I redesign
+        - This was my first shot at a full stack application after all
+        - That's definitely something that will need to be looked at before moving to the other sections down the dashboard
+    - The colors are feeling good too c:
+        - Doing ocean/mermaid themes in the root because Katie loves mermaids
+        - I'm liking this like warm ocean/seaweed kind of vibe its got going on tbh
+    - This is probably going to take a lot longer than I'm thinking since there are 4 other pages I need to redesign but its okay
+        - Honestly, the only page that needs a HUGE revamp is the Dashboard, so once that's done I actually expect the rest to go quite quickly
 
-    -Cloudinary: Complete
-
-    -Postgres: Complete
-
-    -Dashboard: Complete
-
-    -Settings: Complete
-
-## Debug Notes
+NEXT:
+    - Continue working on Dahboard/Hero Section
+    - Fix total miles for each activity not showing before continuing onto next section once done with hero
 
 .
 08/04/2026

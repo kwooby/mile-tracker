@@ -1,0 +1,436 @@
+
+/* ===== GLOBAL PAGE LAYOUT ===== */
+
+:root {
+    font-family: "Segoe UI", sans-serif;
+
+    color: #232729;
+    background: aquamarine;
+
+    --background: aquamarine;
+    --text: #232729;
+    --text-muted: #2c3f3f;
+    --border: #93c2b8;
+    --mermaid: #28b687;
+    --ocean: #009b7c;
+    --ocean-hover:#0cb493;
+    --link-hover:#8ebbb9;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    font-optical-sizing: auto;
+    font-weight: 300;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 500px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 22px;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100px;
+    margin: 0;
+    max-width: 100%;
+}
+
+body,
+button,
+a {
+    font-family: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    color: var(--text);
+    background: var(--border);
+}
+
+:focus-visible {
+    outline: 2px solid var(--ocean);
+    outline-offset: 5px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+
+.mile-tracker-header,
+.mile-tracker-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-block: 15px;
+    border-bottom: 1px solid var(--border);
+
+    width: min(1100px, 100% - 48px);
+    margin-inline: auto;
+}
+
+.brand {
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 750;
+    letter-spacing: -0.06em;
+    text-decoration: none;
+}
+
+.brand span,
+.section-heading h2 span {
+    color: var(--ocean);
+}
+
+.nav li {
+    list-style: none;
+    align-items: flex-end;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a,
+.mile-tracker-footer > a:last-child {
+    color: var(--text-muted);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.mile-tracker-footer > a:last-child:hover {
+    color: var(--ocean);
+}
+
+
+/* Flash / Messages */
+.flash-message {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.flash-message-register {
+    font-weight: bold;
+    padding: 5px;
+    justify-items: center;
+}
+
+.empty-message {
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px;
+    border: solid 1px #a1bbbb;
+    border-radius: 5px;
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+/* Buttons */
+button {
+    background-color: #3e7680;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-button {
+    background-color: #525d63;
+    color: white;
+    border: none;
+    padding: 9px 10px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.page-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.activity-page-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.register-button {
+    width: fit-content;
+    margin: 20px;
+    align-self: center;
+}
+
+button:hover {
+    background-color: #b2cccc;
+    color: #073333;
+}
+
+/* Login CSS */
+.login-landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: #073333;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.login-landing h1 {
+    margin-bottom: 20px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.register-form input {
+    width: max-content;
+    box-sizing: border-box;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2d5858;
+    background-color: transparent;
+    border: solid 1px #0c3944;
+    padding: 6px 8px;
+    margin: 0;
+}
+
+/* Register Page */
+.register-section {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 300px;
+    margin: 5px;
+    gap: 3px;
+}
+
+.register-form input {
+    width: max-content;
+    box-sizing: border-box;
+}
+
+.register-form > :last-child {
+    margin-bottom: 13px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.form-field label {
+    text-align: left;
+    width: fit-content;
+}
+
+/* Run History - ALL HISTORY */
+.all-history-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.all-info-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(123, 145, 145);
+    border-radius: 10px;
+    color: #2d5858;
+    padding: 10px;
+    margin: 4px;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Settings */
+.settings-landing {
+    text-align: center;
+}
+
+.settings-options {
+    display: flex;
+    gap: 5px;
+}
+
+.settings-options > div {
+    flex: 1;
+}
+
+.change-username-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.change-username {
+    margin: 10px;
+}
+
+.delete-account {
+    margin: 10px;
+}
+.delete-account-button {
+    background-color: rgb(255, 67, 67);
+}
+
+.delete-account-button:hover {
+    background-color: rgb(255, 153, 153);
+    color: rgb(51, 22, 22);
+}
+
+/* Mobile Layout Overrides */
+@media (max-width: 768px) {
+    .welcome-page, 
+    .project-list-container,
+    .log-container {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .log-photos-section, 
+    .info-container,
+    .log-details-container,
+    .monthly-miles-container,
+    .all-info-container,
+    .landing {
+        width: 100%;
+    }
+
+    .about-section,
+    .about-extra-content {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        padding: 0;
+    }
+
+    .about-greeting {
+        margin-top: 8px;
+    }
+
+    .social-container {
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+    }
+
+    .about-picture {
+        width: 230px;
+        align-self: center;
+    }
+
+    .about-text p {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    .all-history-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .history {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .history-filters {
+        display: flex;
+        flex-direction: row;
+    }
+
+    input,
+    select,
+    button {
+        width: fit-content;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .gallery img {
+        aspect-ratio: 1 / 1;
+    }
+
+    nav ul {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .settings-options {
+        flex-direction: column;
+    }
+
+    .delete-account-section {
+        margin-top: 20px;
+    }
+}
