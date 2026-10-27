@@ -1,5 +1,5 @@
 
-/* ===== GLOBAL PAGE LAYOUT ===== */
+/* === GLOBAL PAGE LAYOUT === */
 
 :root {
     font-family: "Segoe UI", sans-serif;
@@ -10,9 +10,10 @@
     --background: aquamarine;
     --text: #232729;
     --text-muted: #2c3f3f;
-    --border: #93c2b8;
+    --border: #95d8c9;
+    --border-lite: #b2ffee;
     --mermaid: #28b687;
-    --ocean: #009b7c;
+    --ocean: #007a62;
     --ocean-hover:#0cb493;
     --link-hover:#8ebbb9;
 
@@ -53,12 +54,13 @@ a {
 
 ::selection {
     color: var(--text);
-    background: var(--border);
+    background: var(--ocean-hover);
 }
 
 :focus-visible {
-    outline: 2px solid var(--ocean);
-    outline-offset: 5px;
+    outline: 1px solid var(--ocean-hover);
+    outline-offset: 3px;
+    border-radius: 6px;
 }
 
 img {
@@ -71,7 +73,7 @@ img {
     min-height: 100vh;
 }
 
-/* ===== HEADER & NAVIGATION ===== */
+/* === HEADER & NAVIGATION === */
 
 .mile-tracker-header,
 .mile-tracker-footer {

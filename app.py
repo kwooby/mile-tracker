@@ -618,7 +618,6 @@ def dashboard():
         year=selected_year,
         activity="walk"
     )
-
     return render_template(
         "mile-tracker/dashboard.html",
         runs=runs,

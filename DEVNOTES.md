@@ -9,7 +9,32 @@ Current State: IN RE-PRODUCTION
     - This is a temporary development enviroment I am using to refactor and redesign my mile-tracker web app!
     - I told you I'd be back after i was done with the Hub c:< and I have so much more KNOWLEDGE
 
-## 10/20/2026
+## 10/27/2026
+
+NOTES:
+
+    - One comma was ruining my day c':
+    - Realized I need to actually put data in to test it correctly
+        - Adding a couple sections in the hopes it works after giving it data
+        - I realize what is going on now
+
+    - Monthly miles code only grabs the amount of miles by each month, I was looking at the wrong this the entire time
+        - I need to get the total amount of miles of all time, one is run miles one is walk miles
+        - This is going to be in just total miles, I just need to separate by activity like I did with the monthly totals
+        - I think there should also be an option to reset the miles! Might just be good considering Katie is using it to track how many miles are on her shoes as well
+    
+    - The log activity is looking good and works as expected, not much else to say
+    - Activity by month:
+        - I only got around to adding the filter selection before straying to mess around with the total walk/run at the hero
+
+NEXT:
+    - Continue working on redesign
+    - Clean and add to app.py as needed
+    - Make sure all sections work as intended after redesign!
+
+    - Fix walk/run totals at hero not loading correctly
+
+## 10/26/2026
 
 NOTES:
     - Enviroment is connected to a temporary development database on Render just to test while the web app is still live and working
