@@ -2,7 +2,7 @@
 
 A full-stack mileage tracking web application built with **Flask** and **PostgreSQL** that allows users to record, organize, and manage their running and walking activities. The application features secure authentication, cloud-based photo storage, filtering tools, and a responsive interface designed for both desktop and mobile devices.
 
-This web app is currently undergoing extra development.
+This web app is currently undergoing extra development and a huge style update.
 
 ---
 

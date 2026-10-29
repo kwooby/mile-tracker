@@ -9,6 +9,31 @@ Current State: IN RE-PRODUCTION
     - This is a temporary development enviroment I am using to refactor and redesign my mile-tracker web app!
     - I told you I'd be back after i was done with the Hub c:< and I have so much more KNOWLEDGE
 
+## 10/28/2026
+
+NOTES:
+
+    - Really good progress today
+    - Total run miles and total walk miles have been separated as well as the monthly totals being streamlined
+        - Added activity params to the `get_total_miles` function
+        - Adjusted monthlies to be a dictionary containing all runs, get with `monthly_totals` dict
+    - Dashboard redesign 90% done!**
+        - *Cannot test that the photos work until I connect to cloudinary
+        - *Need to add delete and edit buttons to history runs
+            - Will have to figure out a non-invasice way to set up the edit run
+            - Perhaps on edit the text becomes editable? Think on it.
+        - Doing basic testing until then, will go more in depth in final stages
+        - Made Activity History show 9 most recent runs rather than 6 since the design allows it
+
+NEXT:
+    - Add delete button to recent history runs
+    - Add `edit_run` to recent history runs
+        - Need to build the function still in `app.py`
+        - Need to figure out easiest and least invasive way to edit items without it taking up an unnecessary amount of space
+    - After all that is done, move to `All History` page redesign
+        - I'm thinking I want this page to mimic either the monthly totals or the compressed summary, still unsure which
+        - I guess it could be both on one page?
+
 ## 10/27/2026
 
 NOTES:
