@@ -1,8 +1,13 @@
 .hero-section,
 .log-activity-section,
-.data-by-month-section {
+.data-by-month-section,
+.recent-summary-section,
+.gallery-section {
     width: min(1100px, 100% - 48px);
     margin-inline: auto;
+
+    padding-block: 10px;
+    border-top: 1px solid var(--border);
 }
 
 input,
@@ -69,6 +74,9 @@ select {
 }
 
 .button {
+    color: var(--border-lite);
+    background: var(--text);
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -89,25 +97,34 @@ select {
         transform 0.2s ease;
 }
 
-button:hover {
+.button:hover {
     transform: translateY(-2px);
+    background: var(--text);
 }
 
-.button-primary {
-    color: var(--background);
+.button-primary,
+.button-terciary {
+    color: var(--border-lite);
     background: var(--ocean);
 }
 
-.button-primary:hover {
+.button-primary:hover,
+.button-terciary:hover {
     background: var(--ocean-hover);
 }
 
-/* === LOG ACTIVITY SECTION ===*/
-
-.log-activity-section {
-    padding-block: 10px;
-    border-top: 1px solid var(--border);
+.button-secondary,
+.button-fourth {
+    color: var(--border-lite);
+    background: var(--text);
 }
+
+.button-secondary:hover,
+.button-fourth:hover {
+    background: var(--text-muted);
+}
+
+/* === LOG ACTIVITY SECTION ===*/
 
 .log-activity {
     display: flex;
@@ -140,128 +157,115 @@ button:hover {
 .log-activity .button {
     padding: 10px;
     margin-left: 30px;
-} 
+}
 
-/* Dashboard History - COMPRESSED HISTORY */
-.small-history-container {
+/* === RECENT SUMMARY === */
+
+.activity-filter-form {
+    padding-block: 10px;
+}
+
+.recent-summary {
     display: grid;
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-    align-items: center;
-    text-align: center;
-    padding: 15px;
-    color: #073333;
+    grid-template-columns: repeat(3, 1fr);
+
+    background: var(--border-lite);
+    border-radius: 6px;
 }
 
-.info-container {
+.recent-summary-details {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    border: 1px solid rgb(123, 145, 145);
-    border-radius: 10px;
-    color: #2d5858;
-
-    padding: 10px;
-    margin: 4px;
-}
-
-.activity-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Miles by Month */
-.monthly-miles-container {
-    display: grid;
-
-    justify-items: center;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    padding: 15px;
-    gap: 3px;
-}
-
-
-.monthly-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    justify-content: space-evenly;
-    justify-items: center;
-    align-items: center;
-
-    border: solid 1px rgb(123, 145, 145);
-    border-radius: 5px;
-    width: 100%;
-
-    margin: 5px;
-    padding: 10px;
-}
-
-/* Log Photos */
-.log-photos-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-content: space-around;
-    text-align: center;
-}
-
-.log-photos {
-    display: flex;
-    flex-direction: row;
-    width: 40%;
-    flex-wrap: wrap;
-}
-
-.log-photos-container :last-child {
-    grid-column: 1 / -1;
-    justify-content: space-evenly;
-    align-content: space-around;
-}
-
-/* Image gallery */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
     gap: 20px;
-    padding: 20px
-}
+    padding: 10px;
 
-.gallery > :first-child, .gallery > :last-child {
-    grid-column: 1 / -1;
-    justify-content: space-evenly;
-    align-content: space-evenly;
     align-items: center;
-    text-align: center;
+    justify-content: center;
 }
 
-.gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 5px;
+.page-buttons {
+    display: flex;
+    justify-self: center;
+
+    gap: 10px;
+    padding-block: 10px;
 }
 
-.photo-card {
-    position: relative;
+.page-button {
+    display: flex;
+    background: var(--mermaid);
+
+    padding-block: 5px;
+    width: 70px;
 }
 
-.delete-photo-button {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    opacity: 0;
-    transition: opacity 0.2s;
+.page-button:hover {
+    background: var(--ocean-hover);
 }
 
-.photo-card:hover .delete-photo-button {
-    opacity: 1;
+.search-button {
+    color: var(--text-muted);
+    background: var(--border);
+
+    padding: 5px;
+}
+
+.search-button:hover {
+    color: var(--text);
+    background: var(--border);
+}
+
+/* === MONTHLY BREAKDOWN === */
+
+.filter-container {
+    padding-block: 15px;
+}
+
+.monthly-breakdown-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 18px;
+
+    border-top: 1px transparent;
+    border-radius: 6px;
+
+    background: var(--ocean-hover);
+    color: var(--border-lite);
+}
+
+.monthly-breakdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 10px;
+    border-bottom: 1px solid var(--border-lite);
+}
+
+.monthly-breakdown h3 {
+    width: 80px;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+.monthly-breakdown p {
+    font-size: 1.1rem;
+    line-height: 1.3;
+}
+
+/* === GALLERY === */
+
+.log-photos-section {
+    padding-block: 10px;
+}
+
+.log-photos-section input[type="file"] {
+    background: var(--border-lite);
+    border: 1px solid transparent
+}
+
+.gallery-section .log-photo-button {
+    padding: 10px;
+    margin-left: 30px;
 }

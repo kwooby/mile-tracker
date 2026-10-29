@@ -23,18 +23,28 @@
 
     <h1 class="hero-welcome">You've logged a total of {{ total_miles }} miles.</h1>
 
-    {% if miles %}
-        {{ total_run_monthly }} Run | {{ total_walk_monthly }} Walked
-    {% endif %}
+    <p>{{ total_run_miles }} Run | {{ total_walk_miles }} Walked</p>
 
     <div class="hero-actions">
         <a class="button button-primary" href="{{ url_for('runs_history') }}">
             Full History
         </a>
+
+        <a class="button button-secondary" href="#recent-summary">
+            Recent Activity
+        </a>
+
+        <a class="button button-terciary" href="#month-summary">
+            Monthly Summary
+        </a>
+
+        <a class="button button-fourth" href="#log-photo">
+            Log a Picture
+        </a>
     </div>
 </section>
 
-<section class="log-activity-section" id="log-activity">
+<section class="log-activity-section">
     <h2>Log Activity</h2>
 
     <div class="log-activity">
@@ -46,7 +56,7 @@
         >
 
             <label for="activity">Activity: </label>
-            <select name="activity" id="acticity">
+            <select name="activity" id="activity">
                 <option value="walk">Walk</option>
                 <option value="run">Run</option>
             </select>
@@ -72,7 +82,52 @@
     </div>
 </section>
 
-<section class="data-by-month-section">
+<section class="recent-summary-section" id="recent-summary">
+
+    <h2>Activity History</h2>
+
+    <form class="activity-filter-form" method="GET" action="{{ url_for('dashboard') }}">
+        
+        <label for="activity-filter">Filter by Activity</label>
+        <select name="activity" id="activity-filter">
+            <option value="">All</option>
+            <option value="run">Run</option>
+            <option value="walk">Walk</option>
+        </select>
+
+        <button class="button search-button" type="submit">Show</button>
+    </form>
+
+    <div class="recent-summary">
+        {% for run in runs%}
+            <div class="recent-summary-details">
+                <h3>{{ run["formatted_date"] }}</h3>
+                <p>{{ run["activity"].capitalize() }}</p>
+                <p>|</p>
+                <p>{{ run["miles"] }} Miles</p>
+            </div>
+        {% else %}
+            <p class="empty-message">You haven't logged any activity yet! Log your first run to get started.</p>
+        {% endfor %}
+    </div>
+
+    <div class="page-buttons">
+        {% if run_page > 1 %}
+            <a class="button page-button" href="{{ url_for('dashboard', run_page=run_page-1) }}">
+                Previous
+            </a>
+        {% endif %}
+
+        {% if has_next_runs %}
+            <a class="button page-button" href="{{ url_for('dashboard', run_page=run_page+1) }}">
+                Next
+            </a>
+        {% endif %}
+    </div>
+
+</section>
+
+<section class="data-by-month-section" id="month-summary">
     <h2>Activity by Month</h2>
 
     <div class="filter-container">
@@ -84,19 +139,69 @@
                 {% for y in years %}
                     <option value="{{ y }}"
                         {% if y == selected_year %}selected{% endif %}>
+                        {{ y }}
                     </option>
                 {% endfor %}
             </select>
 
-            <button class="button" type="submit">Show</button>
+            <button class="button search-button" type="submit">Show</button>
         </form>
     </div>
 
     <div class="monthly-breakdown-container">
-        {% if miles %}
+        {% for month in monthly_totals %}
+            <div class="monthly-breakdown">
+                <h3>{{ month.month_name }}</h3>
+                <p>{{ month.run_miles }} Miles Run</p>
+                <p>|</p>
+                <p>{{ month.walk_miles }} Miles Walked</p>
+            </div>
+        {% endfor %}
 
+        {% if not monthly_totals %}
+            <p class="empty-message">
+                Log an activity to see your monthly totals!
+            </p>
         {% endif %}
     </div>
+</section>
+
+<section class="gallery-section">
+    <h2>Photos!</h2>
+
+    <section class="log-photos-section">
+        <form 
+            class="log-photos" 
+            method="POST" 
+            action="{{ url_for('log_photos') }}"
+            enctype="multipart/form-data"
+        >
+            <label for="log_photos">Log Photos</label>
+            <input id="log_photos" name="log_photos" type="file">
+
+            <a class="button log-photo-button" type="submit">Save Photo</a>
+        </form>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery">
+            {% for photo in photos %}
+                <div class="photo-card">
+                    <img src="{{ photo['photo_filename' ] }}" />
+
+                    <form 
+                        class="delete-photo-form" 
+                        action="{{ url_for('delete_photo', photo_id=photo['id']) }}"
+                        method="POST"
+                    >
+                        <button class="delete-photo-button" type="submit">Delete</button>
+                    </form>
+                </div>
+            {% else %}
+                <p class="empty-message">No photos logged yet! Upload one to get started.</p>
+            {% endfor %}
+        </div>
+    </section>
 </section>
 
 {% endblock %}

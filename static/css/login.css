@@ -1,0 +1,40 @@
+/* Login CSS */
+.login-landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    color: #073333;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.login-landing h1 {
+    margin-bottom: 20px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+}
+
+.register-form input {
+    width: max-content;
+    box-sizing: border-box;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2d5858;
+    background-color: transparent;
+    border: solid 1px #0c3944;
+    padding: 6px 8px;
+    margin: 0;
+}
