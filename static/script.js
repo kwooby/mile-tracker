@@ -10,6 +10,81 @@ const confirmDeleteRun = document.querySelectorAll(".delete-run-form");
 const confirmDeletePhoto = document.querySelectorAll(".delete-photo-form");
 const confirmDeleteAccount = document.querySelector(".delete-account");
 
+
+function editRun(id) {
+    console.log("Edit clicked:", id);
+    
+    const button = document.getElementById(`edit-button-${id}`);
+    const row = document.getElementById(`run-${id}`);
+
+    const milesInput = row.querySelector('input[name="miles"]');
+    const runDateInput = row.querySelector('input[name="run_date"]');
+    const activityInput = row.querySelector('select[name="activity"]');
+
+    if (button.textContent.trim() === "Edit") {
+        row.dataset.originalMiles = milesInput.value;
+        row.dataset.originalDate = runDateInput.value;
+        row.dataset.originalActivity = activityInput.value;
+
+        button.textContent = "Save";
+
+        const cancelButton = document.getElementById(`cancel-button-${id}`);
+        cancelButton.hidden = false;
+
+        const deleteButton = document.getElementById(`delete-button-${id}`);
+        deleteButton.hidden = true;
+
+        const textDisplay = row.querySelector('.text-display');
+        textDisplay.hidden = true;
+    } else {
+        document.getElementById(`cancel-button-${id}`).hidden = true;
+        button.closest("form").submit();
+
+        return;
+    }
+
+    const milesDisplay = row.querySelector('.miles-display');
+    const runDateDisplay = row.querySelector('.run-date-display');
+    const activityDisplay = row.querySelector('.activity-display');
+
+    milesDisplay.hidden = true;
+    runDateDisplay.hidden = true;
+    activityDisplay.hidden = true;
+
+    milesInput.hidden = false;
+    runDateInput.hidden = false;
+    activityInput.hidden = false;
+}
+
+function cancelEditRun(id) {
+    const row = document.getElementById(`run-${id}`);
+
+    const milesInput = row.querySelector('input[name="miles"]');
+    const runDateInput = row.querySelector('input[name="run_date"]');
+    const activityInput = row.querySelector('select[name="activity"]');
+    const textDisplay = row.querySelector('.text-display');
+    textDisplay.hidden = false;
+
+    milesInput.value = row.dataset.originalMiles;
+    runDateInput.value = row.dataset.originalDate;
+    activityInput.value = row.dataset.originalActivity;
+
+    const button = document.getElementById(`edit-button-${id}`);
+    button.textContent = "Edit";
+    document.getElementById(`cancel-button-${id}`).hidden = true;
+
+    const deleteButton = document.getElementById(`delete-button-${id}`);
+    deleteButton.hidden = false;
+
+    row.querySelector('.miles-display').hidden = false;
+    row.querySelector('.run-date-display').hidden = false;
+    row.querySelector('.activity-display').hidden = false;
+
+    milesInput.hidden = true;
+    runDateInput.hidden = true;
+    activityInput.hidden = true;
+}
+
 if (button) {
     button.addEventListener("click", function() {
 
