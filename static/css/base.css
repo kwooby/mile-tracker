@@ -126,8 +126,8 @@ img {
 
 
 /* Flash / Messages */
-.flash-message {
-    justify-content: center;
+.flash {
+    justify-items: center;
     padding: 5px;
     margin-bottom: 5px;
     border-radius: 8px;
@@ -190,41 +190,6 @@ img {
     width: fit-content;
 }
 
-/* Run History - ALL HISTORY */
-.all-history-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 10px;
-}
-
-.all-info-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    text-align: center;
-    border: 1px solid rgb(123, 145, 145);
-    border-radius: 10px;
-    color: #2d5858;
-    padding: 10px;
-    margin: 4px;
-}
-
-.history {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
 /* Settings */
 .settings-landing {
     text-align: center;
@@ -258,96 +223,4 @@ img {
 .delete-account-button:hover {
     background-color: rgb(255, 153, 153);
     color: rgb(51, 22, 22);
-}
-
-/* Mobile Layout Overrides */
-@media (max-width: 768px) {
-    .welcome-page, 
-    .project-list-container,
-    .log-container {
-        grid-template-columns: 1fr;
-        width: 100%;
-    }
-
-    .log-photos-section, 
-    .info-container,
-    .log-details-container,
-    .monthly-miles-container,
-    .all-info-container,
-    .landing {
-        width: 100%;
-    }
-
-    .about-section,
-    .about-extra-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        width: 100%;
-        padding: 0;
-    }
-
-    .about-greeting {
-        margin-top: 8px;
-    }
-
-    .social-container {
-        margin-bottom: 0;
-        padding-bottom: 0;
-
-    }
-
-    .about-picture {
-        width: 230px;
-        align-self: center;
-    }
-
-    .about-text p {
-        padding-top: 0;
-        margin-top: 0;
-    }
-
-    .all-history-container {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .history {
-        justify-content: center;
-        text-align: center;
-    }
-
-    .history-filters {
-        display: flex;
-        flex-direction: row;
-    }
-
-    input,
-    select,
-    button {
-        width: fit-content;
-    }
-
-    .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-    }
-    
-    .gallery img {
-        aspect-ratio: 1 / 1;
-    }
-
-    nav ul {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .settings-options {
-        flex-direction: column;
-    }
-
-    .delete-account-section {
-        margin-top: 20px;
-    }
 }
