@@ -9,6 +9,30 @@ Current State: IN RE-PRODUCTION
     - This is a temporary development enviroment I am using to refactor and redesign my mile-tracker web app!
     - I told you I'd be back after i was done with the Hub c:< and I have so much more KNOWLEDGE
 
+## 10/29/2026
+
+NOTES:
+
+    - Add `editRun(id)` script to facilitate inline editing for all input values (editmode)
+        - All three fields are editable
+        - Edit button switches between edit and save depending on if user is in the editing form
+        - Flask route is ready to recieve updated values
+        - TEST OK
+    - Add delete run button
+        - Just needed to add jinja html since the delete run logic is already there
+        - TEST OK CONINUE
+    - Add cancel button in edit mode
+        - This one gave me a rough time
+        - Logic implemented quickly, css making me want to eat my keyboard
+        - 45 minutes of debugging later, buttons are stacked properly in and outside edit mode
+            - A lot of containers and css restrictions to make it work
+    - Dashboard redesign done (allegedly) c:
+    - Added run and walk totals to all history page in order to display them in relevant areas
+    - All history redesign done (allegedly) c:
+    - Mobile layouts done:
+        - Dashboard: GOOD
+        - All History: GOOD
+    
 ## 10/28/2026
 
 NOTES:
