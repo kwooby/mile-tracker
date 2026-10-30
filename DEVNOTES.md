@@ -9,6 +9,15 @@ Current State: IN RE-PRODUCTION
     - This is a temporary development enviroment I am using to refactor and redesign my mile-tracker web app!
     - I told you I'd be back after i was done with the Hub c:< and I have so much more KNOWLEDGE
 
+## 10/30/2026
+
+NOTES:
+
+    - Redesign for all pages has been finished*
+        * Still need to test the pictures once live
+    - Made footer sticky
+        - Tried making it a fixed footer but I did not like it, sticky feels much better
+
 ## 10/29/2026
 
 NOTES:
@@ -32,6 +41,14 @@ NOTES:
     - Mobile layouts done:
         - Dashboard: GOOD
         - All History: GOOD
+
+NEXT:
+
+    - Finish redesign for rest of pages:
+        - Login
+        - Register
+        - Settings
+    - Connect to portfolio without compromising backend data
     
 ## 10/28/2026
 
