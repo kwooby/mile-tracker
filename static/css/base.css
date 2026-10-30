@@ -35,10 +35,16 @@ html {
 }
 
 body {
-    min-width: 320px;
-    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
     margin: 0;
     max-width: 100%;
+}
+
+main {
+    flex: 1;
 }
 
 body,
@@ -124,8 +130,7 @@ img {
     color: var(--ocean);
 }
 
-
-/* Flash / Messages */
+/* === FLASH === */
 .flash {
     justify-items: center;
     padding: 5px;
@@ -148,79 +153,4 @@ img {
     border-radius: 5px;
     width: 100%;
     grid-column: 1 / -1;
-}
-
-/* Register Page */
-.register-section {
-    display: grid;
-    place-items: center;
-    text-align: center;
-    gap: 15px;
-    padding: 15px;
-}
-
-.register-form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 300px;
-    margin: 5px;
-    gap: 3px;
-}
-
-.register-form input {
-    width: max-content;
-    box-sizing: border-box;
-}
-
-.register-form > :last-child {
-    margin-bottom: 13px;
-}
-
-.form-field {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-}
-
-.form-field label {
-    text-align: left;
-    width: fit-content;
-}
-
-/* Settings */
-.settings-landing {
-    text-align: center;
-}
-
-.settings-options {
-    display: flex;
-    gap: 5px;
-}
-
-.settings-options > div {
-    flex: 1;
-}
-
-.change-username-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.change-username {
-    margin: 10px;
-}
-
-.delete-account {
-    margin: 10px;
-}
-.delete-account-button {
-    background-color: rgb(255, 67, 67);
-}
-
-.delete-account-button:hover {
-    background-color: rgb(255, 153, 153);
-    color: rgb(51, 22, 22);
 }
